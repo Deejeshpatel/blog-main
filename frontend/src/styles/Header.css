@@ -1,0 +1,122 @@
+/* Main Header Styles */
+.header {
+    background: linear-gradient(90deg, #f3c6c6, #db88f2); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.header:hover {
+    background: linear-gradient(90deg, #f3c6c6, #db88f2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+/* Logo Styling */
+.header-logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ed5959;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.header-logo:hover {
+    color: #db1919;
+    transform: rotate(-5deg) scale(1.1); 
+}
+
+/* Navigation Styling */
+.header-nav {
+    display: flex;
+    gap: 60px;
+}
+
+.header-link {
+    font-size: 16px;
+    color: #ed5959;
+    text-decoration: none;
+    font-weight: 500; /* slightly bold for visibility */
+    position: relative; /* for underline effect */
+    transition: color 0.3s, transform 0.2s;
+}
+
+.header-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: #010913;
+    transition: width 0.3s ease-in-out;
+}
+
+.header-link:hover {
+    color: #ef3131;
+    transform: scale(1.1);
+}
+
+.header-link:hover::after {
+    width: 100%; /* underline effect on hover */
+}
+
+/* Mobile Navigation Toggle */
+.header-toggle {
+    display: none; /* hidden by default */
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.header-toggle:hover {
+    color: #f06204;
+}
+
+/* Mobile Menu */
+.header-nav-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: #9b0505;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    z-index: 1001;
+}
+
+.header-nav-mobile.open {
+    display: flex; /* show menu when open */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-container {
+        justify-content: space-between;
+    }
+
+    .header-nav {
+        display: none; /* hide desktop nav on mobile */
+    }
+
+    .header-toggle {
+        display: block; /* show toggle icon */
+    }
+}
